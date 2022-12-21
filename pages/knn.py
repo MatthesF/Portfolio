@@ -8,6 +8,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 import streamlit as st
 
+plt.style.use('dark_background')
+
 st.title("KNN from scratch")
 
 def getDist2Neighbor(X_test,X_train):
@@ -68,10 +70,10 @@ X = scaler.fit_transform(X)
 
 cols = st.columns(2)
 n_neighbors = cols[0].slider("Number of neighbors",1,100,2)
-test_size = cols[1].slider("Data test size",0.,1.,0.33)
+test_size = cols[1].slider("Data test size",0.02,.99,0.33)
 
 # split data
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
 
 # PCA
 pca = PCA(n_components=2)
