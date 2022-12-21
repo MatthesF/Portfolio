@@ -12,6 +12,12 @@ plt.style.use('dark_background')
 
 st.title("KNN from scratch")
 
+st.markdown(
+    "K-nearest neighbors (KNN) is a classification algorithm that works by identifying the k number of observations in the training data that are closest to a given test observation, and then predicting the class of the test observation based on the majority class among those neighbors."
+    )
+
+st.markdown("* Number of neighbors (k): The value of k determines the number of neighbors that will be used to make the prediction for a given test observation.\n * Test data size: The size of the test data set determines the number of observations that will be used to evaluate the performance of the model.")
+
 def getDist2Neighbor(X_test,X_train):
     return np.sum(np.abs(X_train-X_test),axis=1)
 

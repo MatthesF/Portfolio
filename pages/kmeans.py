@@ -7,6 +7,15 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 st.title("Kmeans from scratch")
+
+st.markdown(
+    "Kmeans is an unsupervised machine learning algorithm that is used to classify data into a specified number of clusters. The algorithm begins by placing a specified number of random points, known as centroids, within the data set. It then assigns each data point to the closest centroid and calculates the mean of the points within each cluster. The algorithm then moves the centroids to the mean of the points within each cluster and reassigns the data points to the closest centroid. This process is repeated until the centroids no longer move or a maximum number of iterations is reached."
+    )
+
+st.markdown(
+    "* Number of categories: this is the number of clusters that the algorithm will divide the data into. \n * Max iter: this is the maximum number of iterations that the algorithm will perform before stopping. If the centroids do not move or the mean of the points within each cluster does not change, the algorithm will stop before reaching the maximum number of iterations."
+)
+
 def check_if_centroid_within_span(X,proposed_centroids):
     
     for c in proposed_centroids:
@@ -74,20 +83,15 @@ def KMeans(X,num_of_c = 5,maxFev = 100,animate=True):
         if i > 0 and (affiliation == last_affiliation).all():
             
             if animate:
+                for i in range(7):
+                    plt.scatter(X[:,0],X[:,1],c=affiliation)
+                    plt.scatter(C[:,0],C[:,1],s=200,c="red")
+                    camera.snap()
                 animation = camera.animate()
                 components.html(animation.to_jshtml(), height=1000)
             return affiliation
         last_affiliation = affiliation
 
-
-    if animate:
-        
-        plt.title(i)
-        
-        animation = camera.animate()
-
-        animation.save('animation.gif',dpi=300,fps=10)
-        
     return affiliation
 
 df = sns.load_dataset("iris")
@@ -101,10 +105,3 @@ mapper = dict(zip(set(df["species"]),range(len(set(df["species"])))))
 df["label"] = df.species.apply(lambda x: mapper[x])
 
 affiliation = KMeans(X_iris,maxFev=maxFev,num_of_c=num_of_c,animate=True)
-
-#fig, ax = plt.subplots(1,dpi=300)
-
-#ax.scatter(X_iris[:,0],X_iris[:,1],c=affiliation)
-
-#st.pyplot(fig)
-#plt.close()
