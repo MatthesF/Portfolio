@@ -106,6 +106,8 @@ incorrect_data = np.array([i[0] for i in incorrect_list])
 ax.scatter(incorrect_data[:,0],incorrect_data[:,1],
            marker="X",c=[i[1] for i in incorrect_list],edgecolors='red', linewidth=1)
 
+fig.patch.set_alpha(0.0)
+
 ax.set_title("PCA of iris")
 ax.set_xlabel("1st eigenvector")
 ax.xaxis.set_ticklabels([])
