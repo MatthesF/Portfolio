@@ -94,19 +94,18 @@ correct_list, incorrect_list, acc = plotDataKNN(X_test,X_train,y_test,n_neighbor
 fig,ax = plt.subplots(figsize=(10,6),dpi=300)
 
 # train data scatter
-ax.scatter(X_train_pca[:,0],X_train_pca[:,1],c=y_train)
+ax.scatter(X_train_pca[:,0],X_train_pca[:,1],c=y_train,s=100,edgecolors='grey')
 
 # correct labeled data scatter
 correct_data = np.array([i[0] for i in correct_list])
 ax.scatter(correct_data[:,0],correct_data[:,1],
-           marker="X",c=[i[1] for i in correct_list],edgecolors='green', linewidth=1)
+           marker="X",c=[i[1] for i in correct_list],edgecolors='green', linewidth=2.5,s=150)
 
 # incorrect labeled data scatter
 incorrect_data = np.array([i[0] for i in incorrect_list])
 ax.scatter(incorrect_data[:,0],incorrect_data[:,1],
-           marker="X",c=[i[1] for i in incorrect_list],edgecolors='red', linewidth=1)
+           marker="X",c=[i[1] for i in incorrect_list],edgecolors='red', linewidth=2.5,s=150)
 
-fig.patch.set_alpha(0.0)
 
 ax.set_title("PCA of iris")
 ax.set_xlabel("1st eigenvector")

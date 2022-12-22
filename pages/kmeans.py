@@ -60,7 +60,6 @@ def KMeans(X,num_of_c = 5,maxFev = 100,animate=True):
 
     if animate:
         fig = plt.figure()
-        fig.patch.set_alpha(0.0)
         camera = Camera(fig)
         plt.scatter(X[:,0],X[:,1])
         plt.scatter(C[:,0],C[:,1],s=200,c="r")
