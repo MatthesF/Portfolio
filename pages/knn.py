@@ -108,9 +108,9 @@ ax.scatter(incorrect_data[:,0],incorrect_data[:,1],
 
 
 ax.set_title("PCA of iris")
-ax.set_xlabel("1st eigenvector")
+ax.set_xlabel("PC 1")
 ax.xaxis.set_ticklabels([])
-ax.set_ylabel("2nd eigenvector")
+ax.set_ylabel("PC 2")
 ax.yaxis.set_ticklabels([])
 
 cols[0].markdown(f"Accurarcy: {round(acc,3)}")
