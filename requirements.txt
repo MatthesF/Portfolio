@@ -6,3 +6,4 @@ numpy==1.21.4
 streamlit
 scikit-learn==1.2.0
 celluloid==0.2.0
+torch==1.13.0
