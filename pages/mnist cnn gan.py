@@ -48,6 +48,7 @@ gnet.load_state_dict(torch.load("models/MNIST CNN GAN/MNISTGenerator.pt",map_loc
 gnet.eval()
 placeholder = st.empty()
 while True:
+    plt.close()
     fig,ax = plt.subplots(1,2,figsize=(12,6))
     fake_data = torch.randn(1,100,1,1)
     fake_MNIST = gnet(fake_data)
